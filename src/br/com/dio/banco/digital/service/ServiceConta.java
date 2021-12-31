@@ -24,6 +24,9 @@ public class ServiceConta {
 		if (valor <= 0) {
 			throw new Exception("O valor da transferência deve ser maior que 0.0!");
 		}
+		if (origem.getSaldo() < valor) {
+			throw new Exception("Saldo da conta para transferência insuficiente!");
+		}
 		origem.transferir(valor, destino);
 	}
 }
